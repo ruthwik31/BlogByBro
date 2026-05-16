@@ -49,7 +49,7 @@ export default function AdminLoginPage() {
             {BLOG_NAME}
           </h1>
           <p className="text-sm text-neutral-500 mt-1">
-            Sign in to your admin panel
+            only stupid people will try to login here
           </p>
         </div>
 
@@ -68,7 +68,7 @@ export default function AdminLoginPage() {
               onChange={(e) => setEmail(e.target.value)}
               required
               autoComplete="email"
-              placeholder="you@example.com"
+              placeholder="relangimawayya@gmail.com"
               className="w-full px-3.5 py-2.5 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-accent-500 text-sm"
             />
           </div>
@@ -108,7 +108,7 @@ export default function AdminLoginPage() {
           </button>
         </form>
 
-        <p className="text-center text-xs text-neutral-400 mt-6">
+        {/* <p className="text-center text-xs text-neutral-400 mt-6">
           Create your admin account in the{" "}
           <a
             href="https://supabase.com"
@@ -119,7 +119,7 @@ export default function AdminLoginPage() {
             Supabase Dashboard
           </a>{" "}
           → Authentication → Users.
-        </p>
+        </p> */}
       </div>
     </div>
   );

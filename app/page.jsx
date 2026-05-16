@@ -2,6 +2,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PostCard from "@/components/PostCard";
+import HeroSection from "@/components/HeroSection";
 import { createClient } from "@/lib/supabase/server";
 
 export const revalidate = 60; // ISR: revalidate every 60 seconds
@@ -43,7 +44,10 @@ export default async function HomePage({ searchParams }) {
     <>
       <Header />
       <main className="min-h-screen">
-        {/* Hero / Featured post */}
+        {/* Animated hero with floating stickers */}
+        <HeroSection />
+
+        {/* Featured post */}
         {featured && (
           <section className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
             <div className="mb-4 flex items-center gap-3">

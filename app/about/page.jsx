@@ -28,13 +28,13 @@ export default function AboutPage() {
             and whatever is on my mind. You&apos;ll find posts about technology,
             life experiences, and anything else I find worth writing about.
           </p>
-          <p>
+          {/* <p>
             I believe in writing clearly and honestly. I hope you find something
             here that sparks a thought or makes your day a little better.
           </p>
           <p>
             Feel free to explore the posts and reach out if something resonates.
-          </p>
+          </p> */}
         </div>
 
         {/* Update this section with your real info */}
