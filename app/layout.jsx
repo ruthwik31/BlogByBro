@@ -29,7 +29,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <body
         className={`${inter.variable} font-sans antialiased bg-white dark:bg-[#0d0d0d] text-neutral-900 dark:text-neutral-100`}
       >

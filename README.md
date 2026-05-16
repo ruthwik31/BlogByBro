@@ -21,17 +21,19 @@ A personal blog built with Next.js and Supabase. Write and publish posts from a 
 
 ## Local Development
 
-### 1. Install dependencies
+### 1. pull the repo
+
+### 2. Install dependencies
 
 ```bash
 npm install
 ```
 
-### 2. Set up environment variables
+### 3. Set up environment variables
 
 Fill in `.env.local`:
 
-### 3. Run the dev server
+### 4. Run the dev server
 
 ```bash
 npm run dev

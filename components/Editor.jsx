@@ -32,6 +32,7 @@ const lowlight = createLowlight(common);
 
 export default function Editor({ content = "", onChange, onImageUpload }) {
   const editor = useEditor({
+    immediatelyRender: false,
     extensions: [
       StarterKit.configure({
         codeBlock: false, // replaced by CodeBlockLowlight

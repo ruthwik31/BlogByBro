@@ -21,6 +21,12 @@ export default function AdminShell({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Skip auth check on login page to prevent infinite loop
+    if (pathname === "/admin/login") {
+      setLoading(false);
+      return;
+    }
+
     const checkAuth = async () => {
       const {
         data: { session },
@@ -32,7 +38,7 @@ export default function AdminShell({ children }) {
       }
     };
     checkAuth();
-  }, [router, supabase]);
+  }, [router, supabase, pathname]);
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
