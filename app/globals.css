@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Custom Properties ─────────────────────────────────────── */
+:root {
+  --foreground: #1a1a1a;
+  --background: #ffffff;
+  --muted: #737373;
+  --border: #e5e5e5;
+  --accent: #4f46e5;
+}
+
+.dark {
+  --foreground: #e5e5e5;
+  --background: #0d0d0d;
+  --muted: #a3a3a3;
+  --border: #262626;
+  --accent: #818cf8;
+}
+
+/* ── Base ──────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-feature-settings:
+    "rlig" 1,
+    "calt" 1;
+}
+
+/* ── TipTap Editor ─────────────────────────────────────────── */
+.tiptap-editor .ProseMirror {
+  outline: none;
+  min-height: 400px;
+  padding: 1.5rem;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+
+.tiptap-editor .ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: #a3a3a3;
+  pointer-events: none;
+  height: 0;
+}
+
+.tiptap-editor .ProseMirror blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 1.25rem;
+  margin: 1.5rem 0;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.tiptap-editor .ProseMirror pre {
+  background: #1e1e2e;
+  color: #cdd6f4;
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+}
+
+.tiptap-editor .ProseMirror hr {
+  border: none;
+  border-top: 2px solid var(--border);
+  margin: 2rem 0;
+}
+
+.tiptap-editor .ProseMirror img {
+  max-width: 100%;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+
+/* ── Prose (post content) overrides ───────────────────────── */
+.prose pre {
+  background: #1e1e2e !important;
+  color: #cdd6f4 !important;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
