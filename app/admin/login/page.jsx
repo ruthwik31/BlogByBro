@@ -1,15 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { createClient } from "@/lib/supabase/client";
 import { Eye, EyeOff, Lock } from "lucide-react";
 import toast from "react-hot-toast";
+import { createClient } from "@/lib/supabase/client";
 
 const BLOG_NAME = process.env.NEXT_PUBLIC_BLOG_NAME || "My Blog";
 export const dynamic = "force-dynamic";
 export default function AdminLoginPage() {
   const supabase = createClient();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -19,20 +18,28 @@ export default function AdminLoginPage() {
     e.preventDefault();
     setLoading(true);
 
-    const { error } = await supabase.auth.signInWithPassword({
+    console.log("Starting login...");
+    const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
 
     if (error) {
+      console.error("Login failed:", error);
       toast.error(error.message || "Invalid credentials");
       setLoading(false);
       return;
     }
 
+    console.log("Login successful! Session:", data.session ? "exists" : "null");
+    console.log("Waiting 2 seconds for cookies to propagate...");
     toast.success("Welcome back!");
-    // Hard redirect so the browser sends the fresh session cookie
-    window.location.href = "/admin";
+
+    // Wait for cookies to be written
+    setTimeout(() => {
+      console.log("Redirecting to /admin now");
+      window.location.href = "/admin";
+    }, 2000);
   };
 
   return (

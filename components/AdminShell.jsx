@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter, usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { LayoutDashboard, PenSquare, LogOut, ExternalLink } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
@@ -9,7 +10,7 @@ import { cn } from "@/lib/utils";
 const BLOG_NAME = process.env.NEXT_PUBLIC_BLOG_NAME || "My Blog";
 
 const navItems = [
-  { href: "/admin", label: "Dashboard", icon: LayoutDashboard, exact: true },
+  { href: "/admin", label: "Kick", icon: LayoutDashboard, exact: true },
   { href: "/admin/posts/new", label: "New Post", icon: PenSquare },
 ];
 
@@ -17,20 +18,46 @@ export default function AdminShell({ children }) {
   const router = useRouter();
   const pathname = usePathname();
   const supabase = createClient();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+      if (!session) {
+        router.push("/admin/login");
+      } else {
+        setLoading(false);
+      }
+    };
+    checkAuth();
+  }, [router, supabase]);
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
     router.push("/admin/login");
   };
 
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-neutral-500">Loading...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-neutral-50 dark:bg-[#0d0d0d]">
       {/* Top nav */}
       <header className="sticky top-0 z-40 h-14 bg-white dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-800 flex items-center px-4 gap-4">
-        <span className="font-bold text-sm text-neutral-900 dark:text-white">
+        <Link
+          href="/"
+          className="font-bold text-sm text-neutral-900 dark:text-white hover:opacity-75 transition-opacity"
+        >
           {BLOG_NAME}{" "}
-          <span className="text-accent-600 dark:text-accent-400">Admin</span>
-        </span>
+          {/* <span className="text-accent-600 dark:text-accent-400">Admin</span> */}
+        </Link>
 
         <nav className="flex items-center gap-1 ml-4">
           {navItems.map(({ href, label, icon: Icon, exact }) => {
@@ -62,14 +89,14 @@ export default function AdminShell({ children }) {
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm text-neutral-500 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
           >
             <ExternalLink size={14} />
-            View Blog
+            View Rant's
           </Link>
           <button
             onClick={handleLogout}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm text-neutral-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/10 transition-colors"
           >
             <LogOut size={14} />
-            Logout
+            Boyee
           </button>
         </div>
       </header>
