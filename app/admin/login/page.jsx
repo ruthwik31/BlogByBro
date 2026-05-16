@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { Eye, EyeOff, Lock } from "lucide-react";
 import toast from "react-hot-toast";
@@ -9,7 +8,6 @@ import toast from "react-hot-toast";
 const BLOG_NAME = process.env.NEXT_PUBLIC_BLOG_NAME || "My Blog";
 export const dynamic = "force-dynamic";
 export default function AdminLoginPage() {
-  const router = useRouter();
   const supabase = createClient();
 
   const [email, setEmail] = useState("");
@@ -33,8 +31,8 @@ export default function AdminLoginPage() {
     }
 
     toast.success("Welcome back!");
-    router.push("/admin");
-    router.refresh();
+    // Hard redirect so the browser sends the fresh session cookie
+    window.location.href = "/admin";
   };
 
   return (
