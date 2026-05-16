@@ -8,7 +8,7 @@ const TAGLINE =
 
 const stickers = [
   {
-    emoji: "✍️",
+    emoji: "💡",
     msg: "Fresh posts await!",
     x: "6%",
     y: "18%",
@@ -24,7 +24,7 @@ const stickers = [
     delay: "0.6s",
   },
   {
-    emoji: "🚀",
+    emoji: "💡",
     msg: "New stories launching",
     x: "93%",
     y: "55%",
@@ -32,7 +32,7 @@ const stickers = [
     delay: "1.1s",
   },
   {
-    emoji: "📖",
+    emoji: "💡",
     msg: "Grab a good read",
     x: "3%",
     y: "65%",
@@ -40,7 +40,7 @@ const stickers = [
     delay: "1.7s",
   },
   {
-    emoji: "🎯",
+    emoji: "💡",
     msg: "Right on target!",
     x: "80%",
     y: "80%",
@@ -48,7 +48,7 @@ const stickers = [
     delay: "0.9s",
   },
   {
-    emoji: "⚡",
+    emoji: "💡",
     msg: "Hot takes ahead ☕",
     x: "16%",
     y: "85%",
@@ -56,7 +56,7 @@ const stickers = [
     delay: "2.1s",
   },
   {
-    emoji: "🌟",
+    emoji: "💡",
     msg: "Stellar content",
     x: "50%",
     y: "4%",
@@ -64,7 +64,7 @@ const stickers = [
     delay: "0.3s",
   },
   {
-    emoji: "🎨",
+    emoji: "💡",
     msg: "Creative vibes only",
     x: "38%",
     y: "91%",
@@ -127,11 +127,11 @@ export default function HeroSection() {
 
       {/* Hero text */}
       <div className="relative text-center max-w-2xl mx-auto px-4 z-10">
-        <p className="text-2xl mb-2 animate-bounce inline-block">👋</p>
-        <h1 className="hero-gradient-text text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-4 leading-none pb-2">
+        <p className="text-lg mb-1.5 animate-bounce inline-block">👻</p>
+        <h1 className="hero-gradient-text text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-2 leading-none pb-1">
           {BLOG_NAME}
         </h1>
-        <p className="text-base md:text-lg text-neutral-500 dark:text-neutral-400 max-w-md mx-auto leading-relaxed">
+        <p className="text-xs md:text-sm text-neutral-500 dark:text-neutral-400 max-w-md mx-auto leading-relaxed">
           {TAGLINE}
         </p>
       </div>
