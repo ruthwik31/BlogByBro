@@ -28,24 +28,6 @@ export default function AboutPage() {
             and whatever is on my mind. You&apos;ll find posts about technology,
             life experiences, and anything else I find worth writing about.
           </p>
-          {/* <p>
-            I believe in writing clearly and honestly. I hope you find something
-            here that sparks a thought or makes your day a little better.
-          </p>
-          <p>
-            Feel free to explore the posts and reach out if something resonates.
-          </p> */}
-        </div>
-
-        {/* Update this section with your real info */}
-        <div className="mt-12 p-6 bg-neutral-50 dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800">
-          <p className="text-sm text-neutral-500 dark:text-neutral-400 italic">
-            ✏️ <strong>Tip:</strong> Edit{" "}
-            <code className="text-xs bg-neutral-200 dark:bg-neutral-700 px-1.5 py-0.5 rounded">
-              app/about/page.jsx
-            </code>{" "}
-            to update this page with your real bio.
-          </p>
         </div>
       </main>
       <Footer />

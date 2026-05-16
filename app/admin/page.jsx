@@ -73,7 +73,7 @@ export default function AdminDashboardPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold text-neutral-900 dark:text-white">
-          Dashboard
+          Pocket
         </h1>
         <Link
           href="/admin/posts/new"
